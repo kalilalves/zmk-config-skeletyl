@@ -10,7 +10,7 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Install yaml2json
         run: python3 -m pip install remarshal
       - id: set-matrix
@@ -33,9 +33,9 @@ jobs:
         id: variables
         run: |
           if [ -n "${{ matrix.shield }}" ]; then
-            EXTRA_CMAKE_ARGS="-DSHIELD=${{ matrix.shield }}"
+            EXTRA_CMAKE_ARGS="-DSHIELD=${{ matrix.shield }} "
             ARTIFACT_NAME="${{ matrix.shield }}-${{ matrix.board }}-zmk"
-            DISPLAY_NAME="${{ matrix.shield }} - ${{ matrix.board }}"
+            DISPLAY_NAME="${{ matrix.shield }} - ${{ matrix.board }} "
           else
             EXTRA_CMAKE_ARGS=
             DISPLAY_NAME="${{ matrix.board }}"
@@ -45,7 +45,7 @@ jobs:
           echo artifact-name=${ARTIFACT_NAME} >> $GITHUB_OUTPUT
           echo display-name=${DISPLAY_NAME} >> $GITHUB_OUTPUT
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Cache west modules
         uses: actions/cache@v2
         env:
