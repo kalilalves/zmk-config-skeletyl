@@ -1,16 +1,31 @@
+if SHIELD_SKELETYL_LEFT
+
+config ZMK_KEYBOARD_NAME
+    string
+    default "Skeletyl"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+    bool
+    default y
+
+endif
+
 if SHIELD_SKELETYL_RIGHT
 
-    config ZMK_KEYBOARD_NAME
-        default "Skeletyl"
+config ZMK_KEYBOARD_NAME
+    string
+    default "Skeletyl"
 
-    config ZMK_SPLIT_BLE_ROLE_CENTRAL
-        default y
+config ZMK_SPLIT_BLE_ROLE_PERIPHERAL
+    bool
+    default y
 
 endif
 
 if SHIELD_SKELETYL_LEFT || SHIELD_SKELETYL_RIGHT
 
-    config ZMK_SPLIT
-        default y
+config ZMK_SPLIT
+    bool
+    default y
 
 endif
