@@ -13,9 +13,9 @@
 #
 ---
 include:
-  - board: nice_nano_v2/nrf52840
+  - board: nice_nano//zmk
     shield: skeletyl_left
-  - board: nice_nano_v2/nrf52840
+  - board: nice_nano//zmk
     shield: skeletyl_right
-  - board: nice_nano_v2/nrf52840
+  - board: nice_nano//zmk
     shield: settings_reset
